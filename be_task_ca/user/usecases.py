@@ -1,13 +1,11 @@
 import hashlib
+
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 
-from ..item.model import Item
-
-from ..item.repository import find_item_by_id
-
+# from ..item.model import Item
+# from ..item.repository import find_item_by_id
 from .model import CartItem, User
-
 from .repository import (
     find_cart_items_for_user_id,
     find_user_by_email,
@@ -50,12 +48,14 @@ def create_user(create_user: CreateUserRequest, db: Session) -> CreateUserRespon
     )
 
 
-def add_item_to_cart(user_id: int, cart_item: AddToCartRequest, db: Session) -> AddToCartResponse:
+def add_item_to_cart(
+    user_id: int, cart_item: AddToCartRequest, db: Session
+) -> AddToCartResponse:
     user: User = find_user_by_id(user_id, db)
     if user is None:
         raise HTTPException(status_code=404, detail="User does not exist")
 
-    item: Item = find_item_by_id(cart_item.item_id, db)
+    item = None  # find_item_by_id(cart_item.item_id, db)
     if item is None:
         raise HTTPException(status_code=404, detail="Item does not exist")
     if item.quantity < cart_item.quantity:

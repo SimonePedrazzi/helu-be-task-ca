@@ -24,6 +24,13 @@ Stretch goals:
 * Write meaningful tests
 * Replace the SQL repository with an in-memory implementation
 
+### Refactor compromises
+
+For the sake of time, I didn't refactor at all the `user` subpackage, since it would have needed modifications similar to the ones I applied to the `item` subpackage.  
+For this reason I just commented out a couple lines in the file `be_task_ca/user/usecases.py` so that it was possible to at least start the development server.  
+Similarly, I wrote tests only for the `item` subpackage.
+
+
 ## References
 * [Clean Architecture by Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * [Clean Architecture in Python](https://www.youtube.com/watch?v=C7MRkqP5NRI)

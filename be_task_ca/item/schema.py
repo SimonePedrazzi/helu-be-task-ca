@@ -1,5 +1,6 @@
 from typing import List
 from uuid import UUID
+
 from pydantic import BaseModel
 
 
@@ -14,5 +15,5 @@ class CreateItemResponse(CreateItemRequest):
     id: UUID
 
 
-class AllItemsRepsonse(BaseModel):
+class AllItemsResponse(BaseModel):
     items: List[CreateItemResponse]

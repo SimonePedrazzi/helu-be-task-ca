@@ -1,13 +1,11 @@
 from uuid import UUID
-from fastapi import APIRouter, Depends, Request
+
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from ..common import get_db
-
-from .usecases import add_item_to_cart, create_user, list_items_in_cart
-
 from .schema import AddToCartRequest, CreateUserRequest
-
+from .usecases import add_item_to_cart, create_user, list_items_in_cart
 
 user_router = APIRouter(
     prefix="/users",

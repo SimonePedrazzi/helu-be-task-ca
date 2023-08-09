@@ -1,9 +1,10 @@
-from .database import engine, Base
-
-# just importing all the models is enough to have them created
+"""
+just importing all the models is enough to have them created
+"""
 # flake8: noqa
-from .user import model1
-from .item import model2
+from .database import Base, engine
+from .item import model as item_model
+from .user import model as user_model
 
 
 def create_db_schema():

@@ -8,6 +8,7 @@ def start():
 
 def auto_format():
     subprocess.call(["black", "be_task_ca"])
+    subprocess.call(["isort", "be_task_ca"])
 
 
 def run_linter():
